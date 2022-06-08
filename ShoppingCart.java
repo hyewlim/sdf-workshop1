@@ -11,6 +11,7 @@ public class ShoppingCart {
         String input;
         boolean stop = false;
         
+        
         cart.add("apple");
         
         // main loop
@@ -31,12 +32,16 @@ public class ShoppingCart {
                             found = true;
                             break;
                         }
-                    } 
+                    }
                     
                     if (!found) {
                     cart.add(terms[i]);
                     System.out.println("Added " + terms[i]);}
-                }
+
+                    
+                        
+                    
+                } cart.removeIf(String::isEmpty);
            
                 
      
@@ -55,7 +60,14 @@ public class ShoppingCart {
 
 
             case "delete":
-                cart.remove(terms[1]);
+                int delIndex;
+                if (terms.length < 2){
+                    System.out.println("Please provide index of number to remove");
+                } else {
+                    delIndex = Integer.parseInt(terms[1])-1;
+                    cart.remove(delIndex);
+                }
+                
             break;
 
             case "stop": stop = true;
